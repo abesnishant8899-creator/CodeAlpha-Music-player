@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streamline Music Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="player-container">
+        <div class="music-card">
+            <div class="track-info">
+                <div class="track-art" id="trackArt"></div>
+                <h2 class="track-name" id="trackName">Song Title</h2>
+                <p class="track-artist" id="trackArtist">Artist Name</p>
+            </div>
+
+            <div class="progress-container">
+                <span class="time" id="currentTime">0:00</span>
+                <input type="range" min="0" max="100" value="0" class="slider" id="progressSlider">
+                <span class="time" id="totalDuration">0:00</span>
+            </div>
+
+            <div class="controls">
+                <button class="ctrl-btn" id="prevBtn" title="Previous">&#10092;&#10092;</button>
+                <button class="ctrl-btn play-pause-btn" id="playPauseBtn" title="Play/Pause">&#9658;</button>
+                <button class="ctrl-btn" id="nextBtn" title="Next">&#10093;&#10093;</button>
+            </div>
+
+            <div class="volume-container">
+                <span class="vol-icon">&#128266;</span>
+                <input type="range" min="0" max="100" value="80" class="slider" id="volumeSlider">
+            </div>
+        </div>
+
+        <div class="playlist-card">
+            <h3>Next Up in Queue</h3>
+            <ul class="playlist-items" id="playlistItems">
+                </ul>
+        </div>
+    </div>
+
+    <audio id="audioElement"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
