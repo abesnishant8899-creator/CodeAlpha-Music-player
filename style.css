@@ -1,0 +1,222 @@
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --accent-color: #a855f7;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: var(--text-main);
+}
+
+/* Master Grid Wrapper */
+.player-container {
+    display: grid;
+    grid-template-columns: 340px 300px;
+    gap: 25px;
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 24px;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Music Card Section */
+.music-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.track-info {
+    text-align: center;
+    width: 100%;
+}
+
+.track-art {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    border-radius: 16px;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease;
+}
+
+/* Spin animation context when playing */
+.track-art.playing {
+    transform: scale(1.03);
+}
+
+.track-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-artist {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 25px;
+}
+
+/* Timeline & Sliders */
+.progress-container, .volume-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.time {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    min-width: 35px;
+}
+
+.slider {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: #334155;
+    outline: none;
+    accent-color: var(--accent-color);
+    cursor: pointer;
+}
+
+/* Control Row Buttons */
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.ctrl-btn {
+    background: none;
+    border: none;
+    color: var(--text-main);
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: color 0.2s, transform 0.1s;
+}
+
+.ctrl-btn:hover {
+    color: var(--accent-color);
+}
+
+.play-pause-btn {
+    background: var(--text-main);
+    color: #0f172a;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 4px; /* Fix play triangle optical balance */
+}
+
+.play-pause-btn:hover {
+    background: var(--accent-color);
+    color: var(--text-main);
+    transform: scale(1.05);
+}
+
+/* Volume Sub container */
+.volume-container {
+    margin-bottom: 0;
+    width: 80%;
+}
+
+.vol-icon {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Playlist Menu Area */
+.playlist-card {
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
+
+.playlist-items {
+    list-style: none;
+    overflow-y: auto;
+    max-height: 320px;
+}
+
+.playlist-items li {
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 6px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.2s;
+}
+
+.playlist-items li:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.playlist-items li.active-track {
+    background: rgba(168, 85, 247, 0.2);
+    border-left: 3px solid var(--accent-color);
+}
+
+.playlist-items li span {
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.playlist-items li small {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-top: 2px;
+}
+
+/* Responsive Collapse for smaller windows */
+@media (max-width: 700px) {
+    .player-container {
+        grid-template-columns: 1fr;
+        width: 100%;
+        max-width: 360px;
+    }
+    .playlist-card {
+        border-left: none;
+        padding-left: 0;
+        margin-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 20px;
+    }
+}
