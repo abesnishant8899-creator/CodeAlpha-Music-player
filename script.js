@@ -3,20 +3,20 @@ const trackList = [
     {
         name: "One_Bottle_Down",
         artist: "Yo Yo Honey Singh",
-        image: "images/image1.png",
-        path: "music/song1.mp3"
+        image: "image1.png",
+        path: "song1.mp3"
     },
     {
         name: "Azul",
         artist: "Guru Randhawa",
-        image: "images/image2.png",
-        path: "music/song2.mp3"
+        image: "image2.png",
+        path: "song2.mp3"
     },
     {
         name: "Jeene laga hoon",
         artist: "Sachin-Jigar",
-        image: "images/image3.png",
-        path: "music/song3.mp3"
+        image: "image3.png",
+        path: "song3.mp3"
     }
 ];
 
